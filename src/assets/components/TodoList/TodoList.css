@@ -1,0 +1,21 @@
+.todos {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+.todo__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #dadada;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.button__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

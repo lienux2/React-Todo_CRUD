@@ -1,0 +1,28 @@
+button {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  width: 70px;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.7;
+    transition: 0.2s;
+  }
+}
+
+.add {
+  background-color: #d0f288;
+}
+
+.edit {
+  background-color: cornflowerblue;
+}
+
+.delete {
+  background-color: #ff9b9b;
+}
+
+.save {
+  background-color: #96efff;
+}

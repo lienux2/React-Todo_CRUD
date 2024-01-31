@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import { NewForm } from './NewForm'
-import { TodoList } from './TodoList'
-
+import { useEffect, useState } from "react";
+import "./App.css";
+import { NewForm } from "./assets/components/NewForm/NewForm";
+import { TodoList } from "./assets/components/TodoList/TodoList";
+import { Logo } from "./assets/components/Logo/Logo";
 
 function App() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [editedIndex, setEditedIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    const storedTasks = localStorage.getItem('tasks');
+    const storedTasks = localStorage.getItem("tasks");
 
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
@@ -19,7 +19,7 @@ function App() {
   const addTask = (task: string) => {
     setTasks((currentTasks) => {
       const newTasks = [...currentTasks, task];
-      localStorage.setItem('tasks', JSON.stringify(newTasks));
+      localStorage.setItem("tasks", JSON.stringify(newTasks));
       return newTasks;
     });
   };
@@ -28,7 +28,7 @@ function App() {
     setTasks((currentTasks) => {
       const newTasks = [...currentTasks];
       newTasks.splice(index, 1);
-      localStorage.setItem('tasks', JSON.stringify(newTasks));
+      localStorage.setItem("tasks", JSON.stringify(newTasks));
       return newTasks;
     });
   };
@@ -41,38 +41,48 @@ function App() {
     setTasks((currentTasks) => {
       const newTasks = [...currentTasks];
       newTasks[index] = newText;
-      localStorage.setItem('tasks', JSON.stringify(newTasks));
+      localStorage.setItem("tasks", JSON.stringify(newTasks));
       setEditedIndex(null);
       return newTasks;
     });
   };
 
-  const handleToggleComplete = () => {
-
-  };
+  const handleToggleComplete = () => {};
 
   return (
     <>
-      <div className='form'>
-        <h1>What needs to be done?</h1>
-        <NewForm onAddTask={addTask} />
-      </div>
-      <hr className='divider'></hr>
-      <div className='current-tasks'>
-        <h3>My current tasks</h3>
-      </div>
-      <div className='current-tasks'>
-        <TodoList
-          tasks={tasks}
-          onDeleteTask={deleteTask}
-          onEditTask={editTask}
-          editedIndex={editedIndex}
-          onSaveEditedTask={saveEditedTask}
-          onToggleComplete={handleToggleComplete}
-        />
+      <div className="container">
+        <div className="todo__form">
+          <div className="title__content">
+            <Logo />
+            <h1>Todo List</h1>
+          </div>
+
+          <div className="content">
+            <div className="add-todo">
+              <h3 className="title">What needs to be done?</h3>
+              <NewForm onAddTask={addTask} />
+            </div>
+
+            <div>
+              <h3>My current tasks:</h3>
+            </div>
+
+            <div>
+              <TodoList
+                tasks={tasks}
+                onDeleteTask={deleteTask}
+                onEditTask={editTask}
+                editedIndex={editedIndex}
+                onSaveEditedTask={saveEditedTask}
+                onToggleComplete={handleToggleComplete}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
