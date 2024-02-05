@@ -19,4 +19,4 @@ Simple Single Page Todo Crud app with few components using React with Vite. Todo
 For styling used simple CSS.
 
 ![bootstrap-5-logo-85A1F11F4F-seeklogo com](https://github.com/lienux2/React-Todo_CRUD/assets/143158385/e008fe46-cb04-47d9-8027-e9da5c97808d)
-
+<img src="bootstrap-5-logo-85A1F11F4F-seeklogo.com.png"/>
